@@ -101,21 +101,6 @@ int chatting(int sock_id)
     return 0;
 }
 
-void chatting_recieved(int sock_id)
-{
-	char message[BUF_SIZE];
-	int message_len;
-	while (1)
-	{
-		message_len = read(sock_id, message, sizeof(message) - 1);
-		if (message_len < 1)
-			return NULL;
-		message[message_len] = '\0';
-		fputs(message, stdout);
-	}
-	return;
-}
-
 void error_handling(char* message) {
     fputs(message, stderr);
     fputc('\n', stderr);
